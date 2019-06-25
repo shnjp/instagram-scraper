@@ -1252,7 +1252,7 @@ class InstagramScraper(object):
 
 
 
-def main():
+def main(args=None):
     parser = argparse.ArgumentParser(
         description="instagram-scraper scrapes and downloads an instagram user's photos and videos.",
         epilog=textwrap.dedent("""
@@ -1330,7 +1330,7 @@ def main():
     parser.add_argument('--verbose', '-v', type=int, default=0, help='Logging verbosity level')
     parser.add_argument('--template', '-T', type=str, default='{urlname}', help='Customize filename template')
 
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     if (args.login_user and args.login_pass is None) or (args.login_user is None and args.login_pass):
         parser.print_help()
